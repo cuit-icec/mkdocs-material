@@ -3,7 +3,7 @@
 -#}
 {% macro render_nav_item(nav_item, path, level) %}
   {% set class = "md-nav__item" %}
-  {% if nav_item.active %}
+  {% if nav_item.active%}
     {% set class = class ~ " md-nav__item--active" %}
   {% endif %}
   {% if nav_item.children %}
@@ -13,7 +13,7 @@
       {% set class = class ~ " md-nav__item--section" %}
     {% endif %}
     <li class="{{ class }} md-nav__item--nested">
-      {% set checked = "checked" if nav_item.active %}
+      {% set checked = "checked" if nav_item.active or true %}
       {% if "navigation.expand" in features and not checked %}
         <input class="md-nav__toggle md-toggle" data-md-toggle="{{ path }}" data-md-state="indeterminate" type="checkbox" id="{{ path }}" checked>
       {% else %}
